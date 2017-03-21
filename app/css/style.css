@@ -1,0 +1,29 @@
+.user-avatar-small {
+    position: relative;
+    background: #fff;
+    padding: 5px;
+    width: 125px;
+    height: 125px;
+    border-radius: 50%;
+    border: 1px solid rgba(0, 0, 0, .25);
+}
+
+.user-avatar-small img {
+    width: 125px;
+    border-radius: 50%;
+}
+
+.user-avatar-large {
+    position: relative;
+    background: #fff;
+    padding: 5px;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    border: 1px solid rgba(0, 0, 0, .25);
+}
+
+.user-avatar-large img {
+    width: 200px;
+    border-radius: 50%;
+}

@@ -21,6 +21,7 @@
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
   <link rel="stylesheet" href="app/css/normalize.css">
   <link rel="stylesheet" href="app/css/skeleton.css">
+  <link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
   <link rel="stylesheet" href="app/css/style.css">
 
   <!-- Favicon
@@ -42,13 +43,97 @@
       </div>
     </div>
   </div>
+      <div class="section users">
+          <div class="container">
+              <div class="row">
+                  <div class="twelve columns">
+                      <h4>Users</h4>
+                      <div class="row">
+                          <div class="six columns">
+                              <form>
+                                  <label for="searchUser"></label>
+                                  <input class="u-full-width" type="text" placeholder="Search User by First Name"
+                                         id="searchUser">
+                              </form>
+                          </div>
+                          <div class="six columns">
 
+                              <a class="button" id="showChart" href="#">Show Chart</a>
+
+                          </div>
+                      </div>
+                      <table id="users" class="u-full-width accordion">
+                          <thead>
+                          <tr>
+                              <th></th>
+                              <th>First</th>
+                              <th>Last</th>
+                              <th>Username</th>
+                              <th>Phone</th>
+                              <th>Location</th>
+                              <th></th>
+                          </tr>
+                          </thead>
+                          <tbody class="users" v-for="userData in usersData">
+                          <tr class="shortDesc">
+                              <td>
+                                  <div class="user-avatar-small">
+                                      <img v-bind:src="userData.picture.large" v-bind:alt="userData.login.large">
+                                  </div>
+                              </td>
+                              <td>{{ userData.name.first }}</td>
+                              <td>{{ userData.name.last }}</td>
+                              <td>{{ userData.login.username }}</td>
+                              <td>{{ userData.phone }}</td>
+                              <td>{{ userData.location.city }}</td>
+                              <td><a id="1" href="#"><i class="fa fa-plus-circle fa-2x"></i></a></td>
+                          </tr>
+                          <tr>
+                              <td colspan="7" id="2" class="fullDesc">
+                                  <div class="wrapper">
+                                      <p class="first-name"><span class="bold">{{ userData.name.first }} </span>
+                                          <i v-if="userData.gender === 'male'" class="ion-man"></i>
+                                          <i v-else class="ion-woman"></i>
+                                      </p>
+                                      <div class="row accordion-body collapse">
+                                          <div class="three columns info">
+                                              <p><span class="bold">Username: </span>{{ userData.login.username }} </p>
+                                              <p><span class="bold">Registered: </span> {{ userData.registered }}</p>
+                                              <p><span class="bold">Email: </span>{{ userData.email }}</p>
+                                          </div>
+                                          <div class="three columns info">
+                                              <p><span class="bold">Address: </span>{{ userData.location.street }}</p>
+                                              <p><span class="bold">City: </span>{{ userData.location.city }}</p>
+                                              <p><span class="bold">Post: </span>{{ userData.location.postcode }}</p>
+                                          </div>
+                                          <div class="three columns info">
+                                              <p><span class="bold">Birthday: </span>{{ userData.dob }}</p>
+                                              <p><span class="bold">Phone: </span>{{ userData.phone }}</p>
+                                              <p><span class="bold">Cell: </span>{{ userData.cell }}</p>
+                                          </div>
+                                          <div class="three columns info">
+                                              <div class="user-avatar-large">
+                                                  <img v-bind:src="userData.picture.large" v-bind:alt="userData.login.large">
+                                              </div>
+                                          </div>
+                                      </div>
+                                  </div>
+                              </td>
+                          </tr>
+                          </tbody>
+                      </table>
+
+                  </div>
+              </div>
+          </div>
+      </div>
 
   </div>
 <!-- End Document
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
 
   <script src="https://unpkg.com/vue"></script>
+  <script src="https://unpkg.com/vue-resource@1.2.1/dist/vue-resource.min.js"></script>
   <script src="app/js/main.js"></script>
 </body>
 </html>

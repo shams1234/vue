@@ -6,8 +6,16 @@ var app = new Vue({
   el: '#app',
   data: {
     title: 'Hello Vue',
+    createdBy: 'Anton Shamseev',
+    copyright : '2017',
     usersDataUrl: 'https://randomuser.me/api',
-    usersData: []
+    usersData: [],
+    show: false
+  },
+  computed: {
+    count: function () {
+        return this.count = this.usersData.length;
+    }
   },
   methods: {
     getUsersData: function() {

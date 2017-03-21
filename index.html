@@ -78,7 +78,7 @@
                           <tr class="shortDesc">
                               <td>
                                   <div class="user-avatar-small">
-                                      <img v-bind:src="userData.picture.large" v-bind:alt="userData.login.large">
+                                      <img :src="userData.picture.large" :alt="userData.login.username">
                                   </div>
                               </td>
                               <td>{{ userData.name.first }}</td>
@@ -86,10 +86,10 @@
                               <td>{{ userData.login.username }}</td>
                               <td>{{ userData.phone }}</td>
                               <td>{{ userData.location.city }}</td>
-                              <td><a id="1" href="#"><i class="fa fa-plus-circle fa-2x"></i></a></td>
+                              <td><a id="1" href="#" @click.prevent="show = !show"><i class="ion-android-add-circle"></i></a></td>
                           </tr>
                           <tr>
-                              <td colspan="7" id="2" class="fullDesc">
+                              <td colspan="7" id="2" class="fullDesc" v-if="show">
                                   <div class="wrapper">
                                       <p class="first-name"><span class="bold">{{ userData.name.first }} </span>
                                           <i v-if="userData.gender === 'male'" class="ion-man"></i>
@@ -113,7 +113,7 @@
                                           </div>
                                           <div class="three columns info">
                                               <div class="user-avatar-large">
-                                                  <img v-bind:src="userData.picture.large" v-bind:alt="userData.login.large">
+                                                  <img :src="userData.picture.large" :alt="userData.login.username">
                                               </div>
                                           </div>
                                       </div>
@@ -127,6 +127,30 @@
               </div>
           </div>
       </div>
+
+
+  <div class="modal-overlay">
+      <div class="modal">
+          <h2>This is Our Gender Chart</h2>
+          <canvas id="gender-chart" width="300" height="300"></canvas>
+          <button class="modal-close">Close window</button>
+      </div>
+  </div>
+
+  <div id="footer" class="footer-wrapper">
+      <footer class="container">
+          <div class="container">
+              <div class="row">
+                  <div class="one-half column">
+                      <p>Copyright: <b>{{ createdBy }}</b>, {{ copyright }} </p>
+                  </div>
+                  <div class="one-half column">
+                      <p>Loaded <b>{{ count }}</b> users</p>
+                  </div>
+              </div>
+          </div>
+      </footer>
+  </div>
 
   </div>
 <!-- End Document

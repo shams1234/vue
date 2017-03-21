@@ -86,10 +86,10 @@
                               <td>{{ userData.login.username }}</td>
                               <td>{{ userData.phone }}</td>
                               <td>{{ userData.location.city }}</td>
-                              <td><a id="1" href="#" @click.prevent="show = !show"><i class="ion-android-add-circle"></i></a></td>
+                              <td><a :id="userData.login.username" href="#" @click.prevent="showFullDesc($event)"><i :class="{ 'ion-android-add-circle':isNonActive, 'ion-android-remove-circle':isActive }"></i></a></td>
                           </tr>
                           <tr>
-                              <td colspan="7" id="2" class="fullDesc" v-if="show">
+                              <td colspan="7" :id="userData.login.username" class="fullDesc">
                                   <div class="wrapper">
                                       <p class="first-name"><span class="bold">{{ userData.name.first }} </span>
                                           <i v-if="userData.gender === 'male'" class="ion-man"></i>

@@ -10,7 +10,9 @@ var app = new Vue({
     copyright : '2017',
     usersDataUrl: 'https://randomuser.me/api',
     usersData: [],
-    show: false
+    isNonActive: true,
+    isActive: false
+    // show: false
   },
   computed: {
     count: function () {
@@ -31,7 +33,14 @@ var app = new Vue({
       }, function(error) {
         console.log(error);
       })
-    }
+    },
+      showFullDesc: function (event) {
+          targetId = event.currentTarget.id;
+          // targetId.isNonActive = !targetId.isNonActive;
+          // targetId.isActive = !targetId.isActive;
+
+          console.log(targetId);
+      }
   },
   created: function() {
     this.getUsersData();
